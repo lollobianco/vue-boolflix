@@ -39,6 +39,6 @@
 <style lang="scss" scoped>
 .card{
    width: calc(95%/5);
-   margin-top: 30px;
+   margin: 15px 0;
 }
 </style>

@@ -27,5 +27,6 @@ import CardMovie from './CardMovie.vue'
 <style lang="scss" scoped>
 #film-list{
    background-color: #212529;
+   padding: 50px;
 }
 </style>
