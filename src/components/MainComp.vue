@@ -2,21 +2,25 @@
    <div id="maincomp">
 
       <FilmList :filmResultsApp="filmResultsApp" />
+      <SeriesList :seriesResultsApp="seriesResultsApp" />
       
    </div>
 </template>
 
 <script>
-import FilmList from '../components/FilmList.vue'
+import FilmList from './FilmList.vue'
+import SeriesList from './SeriesList.vue'
 
    export default {
       name: 'MainComp',
       components: {
-         FilmList
+         FilmList,
+         SeriesList
       },
       props: {
 
-         filmResultsApp: Array
+         filmResultsApp: Array,
+         seriesResultsApp: Array
 
       },
    }

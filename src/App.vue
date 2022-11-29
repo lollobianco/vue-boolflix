@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderComp @emitSearchTextHeader="searchMovie" />
-    <MainComp :filmResultsApp="filmResults" />
+    <MainComp :filmResultsApp="filmResults" :seriesResultsApp="seriesResults"/>
   </div>
 </template>
 
@@ -22,8 +22,12 @@ export default {
 
     return{
       searchTextFromHeaderToApp: '',
-      searchQueryUrl: '', 
+
+      searchQueryUrlFilms: '', 
       filmResults: [],
+
+      searchQueryUrlSeries: '',
+      seriesResults: [],
     }
 
   },
@@ -41,10 +45,10 @@ export default {
       this.searchTextFromHeaderToApp = searchTextHeader
       console.log(this.searchTextFromHeaderToApp)
 
-      this.searchQueryUrl = 'https://api.themoviedb.org/3/search/movie?api_key=a4cfc34d9593168a15afe399f5ed5ee0&language=en-US&page=1&include_adult=false&query=' + 
+      this.searchQueryUrlFilms = 'https://api.themoviedb.org/3/search/movie?api_key=a4cfc34d9593168a15afe399f5ed5ee0&language=en-US&page=1&include_adult=false&query=' + 
       this.searchTextFromHeaderToApp;
 
-      axios.get(this.searchQueryUrl)
+      axios.get(this.searchQueryUrlFilms)
       .then((response)=>{
 
       console.log(response)
@@ -55,7 +59,19 @@ export default {
 
       })
 
-    }
+      this.searchQueryUrlSeries = 'https://api.themoviedb.org/3/search/tv?api_key=a4cfc34d9593168a15afe399f5ed5ee0&language=en-US&page=1&include_adult=false&query=' + 
+      this.searchTextFromHeaderToApp;
+
+      axios.get(this.searchQueryUrlSeries)
+      .then((response)=>{
+
+      console.log(response)
+
+      this.seriesResults = response.data.results
+
+      })
+
+    },
 
   }
 
