@@ -3,6 +3,7 @@
 
       <div class="card">
       
+         <img :src="`http://image.tmdb.org/t/p/w342/${movieObject.backdrop_path}`" alt="MovieImage" class="rounded">
          
          <span>
             {{movieObject.title}}
@@ -37,8 +38,7 @@
 
 <style lang="scss" scoped>
 .card{
-   height: 200px;
    width: calc(95%/5);
-   border: 1px solid red;
+   margin-top: 30px;
 }
 </style>

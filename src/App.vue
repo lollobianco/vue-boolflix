@@ -69,4 +69,8 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   
 }
+
+html{
+  background-color: #212529;
+}
 </style>

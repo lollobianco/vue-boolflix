@@ -4,6 +4,7 @@
 
       <div class="logo text-white">
         logo
+        <img src="" alt="">
       </div>
 
       <div class="">
