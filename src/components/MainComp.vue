@@ -1,12 +1,19 @@
 <template>
    <div id="maincomp">
-
+      <div v-for="(element, index) in filmResultsApp" :key="index">
+         {{element.title}}
+      </div>
    </div>
 </template>
 
 <script>
    export default {
-      name: 'MainComp'
+      name: 'MainComp',
+      props: {
+
+         filmResultsApp: Array
+
+      }
    }
 </script>
 

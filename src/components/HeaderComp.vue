@@ -7,7 +7,7 @@
       </div>
 
       <div class="">
-        <input class="form-control" type="text" placeholder="Search Movie" aria-label="default input example" v-model="searchText" @keyup.enter="$emit('emitSearchTextHeader', searchText)">
+        <input class="form-control" type="text" placeholder="Search Movie" aria-label="default input example" v-model="searchText" @keyup="$emit('emitSearchTextHeader', searchText)">
       </div>
 
     </div>
