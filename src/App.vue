@@ -1,20 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HeaderComp @emitSearchTextHeader="searchMovie" />
+    <MainComp/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderComp from './components/HeaderComp.vue'
+import MainComp from './components/MainComp.vue'
+
 // import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeaderComp,
+    MainComp
+  },
+
+  data(){
+
+    return{
+      searchTextFromHeaderToApp: '' 
+    }
+
+  },
+
+  mounted(){
+
+    
+  },
+
+  methods:{
+
+    searchMovie(searchTextHeader){
+      this.searchTextFromHeaderToApp = searchTextHeader
+      console.log(this.searchTextFromHeaderToApp)
+    }
+
   }
+
 }
+
 </script>
 
 <style lang="scss">
