@@ -1,19 +1,24 @@
 <template>
    <div id="maincomp">
-      <div v-for="(element, index) in filmResultsApp" :key="index">
-         {{element.title}}
-      </div>
+
+      <FilmList :filmResultsApp="filmResultsApp" />
+      
    </div>
 </template>
 
 <script>
+import FilmList from '../components/FilmList.vue'
+
    export default {
       name: 'MainComp',
+      components: {
+         FilmList
+      },
       props: {
 
          filmResultsApp: Array
 
-      }
+      },
    }
 </script>
 
