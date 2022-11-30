@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderComp @emitSearchTextHeader="searchMovie" />
-    <MainComp :filmResultsApp="filmResults" :seriesResultsApp="seriesResults"/>
+    <MainComp :filmResultsApp="filmResults" :seriesResultsApp="seriesResults" :searchTextFromHeaderToMain="searchTextFromHeaderToApp"/>
   </div>
 </template>
 
@@ -87,6 +87,6 @@ export default {
 }
 
 html{
-  background-color: #212529;
+  background-color: #141414;
 }
 </style>

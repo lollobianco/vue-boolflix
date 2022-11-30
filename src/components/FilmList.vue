@@ -1,7 +1,14 @@
 <template>
-   <div class="d-flex flex-wrap justify-content-between" id="film-list">
 
-      <CardMovie  v-for="(element, index) in filmResultsApp" :key="index" :movieObject="element"/>
+   <div>
+
+      <div class="searched-title" v-if="( searchTextFromHeaderToFilmList != '' )">Dai un'occhiata ai film correlati a: {{searchTextFromHeaderToFilmList}}</div>
+
+      <div class="d-flex justify-content-between" id="film-list">
+
+         <CardMovie  v-for="(element, index) in filmResultsApp" :key="index" :movieObject="element"/>
+
+      </div>
 
    </div>
 </template>
@@ -17,7 +24,8 @@ import CardMovie from './CardMovie.vue'
       },
       props:{
 
-         filmResultsApp: Array
+         filmResultsApp: Array,
+         searchTextFromHeaderToFilmList: String
 
       }
    }
@@ -26,7 +34,17 @@ import CardMovie from './CardMovie.vue'
 
 <style lang="scss" scoped>
 #film-list{
-   background-color: #212529;
-   padding: 50px;
+   background-color: #141414;
+   padding: 20px 50px;
+   overflow-x: auto;
+   overflow-y: hidden;
+
+}
+
+.searched-title{
+   color: #808080;
+   background-color: #141414;
+   padding: 50px 0 10px 50px;
+   font-size: 1.3rem;
 }
 </style>

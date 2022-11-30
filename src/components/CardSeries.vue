@@ -1,26 +1,30 @@
 <template>
    
 
-   <div class="card">
+   <div v-if="(seriesObject.backdrop_path != null)" class="card-series me-3">
    
-      <img :src="`http://image.tmdb.org/t/p/w342/${seriesObject.backdrop_path}`" alt="SeriesImage" class="rounded">
+      <img :src="`http://image.tmdb.org/t/p/w342/${seriesObject.backdrop_path}`" alt="SeriesImage" class="rounded image">
       
-      <span>
-         {{seriesObject.name}}
-      </span>
 
-      <span>
-         {{seriesObject.original_name}}
-      </span>
+      <div class="description">
+         <div>
+            {{seriesObject.name}}
+         </div>
 
-      <span>
-         {{seriesObject.original_language}}
-      </span>
+         <div>
+            {{seriesObject.original_name}}
+         </div>
 
-      <span>
-         {{seriesObject.vote_average}}
-      </span>
-   
+         <div>
+            {{seriesObject.original_language}}
+         </div>
+
+         <div>
+            {{seriesObject.vote_average}}
+         </div>
+     
+      </div>
+      
    
    </div>
 
@@ -37,8 +41,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card{
-width: calc(95%/5);
-margin: 15px 0;
+.card-series{
+   width: calc(95% / 5);
+   margin: 15px 0px;
+   padding: 10px;
+   cursor: pointer;
+   transition: all 100ms linear;
 }
+
+.description {
+  opacity: 0;
+}
+
+.card-series:hover .description {
+  opacity: 1;
+  color: white;
+}
+
+.card-series:hover{
+   scale: 1.2;
+   position: relative;
+   z-index: 1;
+}
+
 </style>

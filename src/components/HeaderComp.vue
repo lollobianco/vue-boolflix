@@ -1,14 +1,13 @@
 <template>
   <div>
-    <div id="headercomp" class="bg-dark d-flex align-items-center justify-content-between p-3">
+    <div id="headercomp" class="d-flex align-items-center justify-content-between p-3">
 
-      <div class="logo text-white">
-        logo
-        <img src="" alt="">
-      </div>
+      <!-- <div class="logo text-white"> -->
+        <img src="../assets/netflix-logo-png-2582.png" alt="logo" id="img-logo">
+      <!-- </div> -->
 
-      <div class="">
-        <input class="form-control" type="text" placeholder="Search Movie" aria-label="default input example" v-model="searchText" @keyup="$emit('emitSearchTextHeader', searchText)">
+      <div class="form-control-container">
+        <input class="form-control" type="text" placeholder="Search Movie..." aria-label="default input example" v-model="searchText" @keyup="$emit('emitSearchTextHeader', searchText)">
       </div>
 
     </div>
@@ -33,7 +32,25 @@ export default {
 <style scoped lang="scss">
 
 #headercomp{
-  border: 1px solid red;
+  background-color: #141414;
+  height: 60px;
+}
+
+.logo{
+  height: 30px;
+}
+
+#img-logo{
+  height: 60px;
+}
+
+.form-control-container{
+  width: 13%;
+
+  .form-control{
+    width: 100%;
+  }
+
 }
 
 </style>

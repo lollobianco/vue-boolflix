@@ -1,8 +1,8 @@
 <template>
    <div id="maincomp">
 
-      <FilmList :filmResultsApp="filmResultsApp" />
-      <SeriesList :seriesResultsApp="seriesResultsApp" />
+      <FilmList :filmResultsApp="filmResultsApp" :searchTextFromHeaderToFilmList="searchTextFromHeaderToMain"/>
+      <SeriesList :seriesResultsApp="seriesResultsApp" :searchTextFromHeaderToSeriesList="searchTextFromHeaderToMain"/>
       
    </div>
 </template>
@@ -20,12 +20,14 @@ import SeriesList from './SeriesList.vue'
       props: {
 
          filmResultsApp: Array,
-         seriesResultsApp: Array
+         seriesResultsApp: Array,
+         searchTextFromHeaderToMain: String
 
       },
    }
 </script>
 
 <style lang="scss" scoped>
+
 
 </style>
