@@ -8,12 +8,15 @@
 
       <div class="description">
 
-         <div>
-            <span class="text-danger">Titolo originale: </span>{{seriesObject.original_name}}
+         <div v-if="(seriesObject.original_name == seriesObject.name)">
+            <span class="text-danger">Titolo: </span>{{seriesObject.original_name}}
          </div>
 
-         <div>
-            <span class="text-danger">Titolo: </span>{{seriesObject.name}}
+         <div v-else>
+            <span class="text-danger">Titolo originale: </span>{{seriesObject.original_name}}
+            <div>
+               <span class="text-danger">Titolo: </span>{{seriesObject.name}}
+            </div>
          </div>
 
          <div class="stars-container">
@@ -70,11 +73,6 @@ methods:{
 
 
    starsPrint(){ 
-
-      this.vote = 0,
-      this.fullStars = 0,
-      this.emptyStars = 0,
-      this.halfStar = false,
 
       this.vote = this.seriesObject.vote_average / 2;
 

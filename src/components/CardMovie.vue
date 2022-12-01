@@ -10,13 +10,16 @@
 
       <div class="description">
        
-        <div>
-           <span class="text-danger">Titolo originale:</span> {{movieObject.original_title}}
-        </div>
+        <div v-if="(movieObject.original_title == movieObject.title)">
+            <span class="text-danger">Titolo: </span>{{movieObject.original_title}}
+         </div>
 
-        <div>
-          <span class="text-danger">Titolo:</span> {{movieObject.title}}
-        </div>
+         <div v-else>
+            <span class="text-danger">Titolo originale: </span>{{movieObject.original_title}}
+            <div>
+               <span class="text-danger">Titolo: </span>{{movieObject.title}}
+            </div>
+         </div>
         
         <div class="stars-container">
 
