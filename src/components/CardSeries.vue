@@ -18,6 +18,8 @@
 
          <div class="stars-container">
 
+            {{ starsPrint() }}
+
             <span class="text-danger">Valutazione: </span>
 
             <span v-for="n in fullStars" :key="'fullstarseries' + n">
@@ -31,6 +33,8 @@
             <span v-for="n in emptyStars" :key="'emptystarseries' + n">
                <font-awesome-icon icon="fa-regular fa-star" />
             </span>
+
+            <span> ({{seriesObject.vote_average}})</span>
 
          </div>
 
@@ -65,33 +69,38 @@ return{
 methods:{
 
 
-   starsPrint(){
+   starsPrint(){ 
 
-   this.vote = this.seriesObject.vote_average / 2;
+      this.vote = 0,
+      this.fullStars = 0,
+      this.emptyStars = 0,
+      this.halfStar = false,
 
-   if(this.vote != Math.floor(this.vote)){
+      this.vote = this.seriesObject.vote_average / 2;
 
-      this.halfStar = true;
+      if(this.vote != Math.floor(this.vote)){
 
-      this.fullStars = Math.floor(this.vote);
+         this.halfStar = true;
 
-      this.emptyStars = 5 - this.fullStars - 1;
+         this.fullStars = Math.floor(this.vote);
 
-   } else {
+         this.emptyStars = 5 - this.fullStars - 1;
 
-      this.fullStars = this.vote;
+      } else {
 
-      this.emptyStars = 5 - this.fullStars;
+         this.halfStar = false;
+
+         this.fullStars = this.vote;
+
+         this.emptyStars = 5 - this.fullStars;
+
+      }
 
    }
 
-   }
 
+}
 
-},
-mounted() {
-this.starsPrint();
-},
 }
 </script>
 

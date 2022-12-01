@@ -2,7 +2,6 @@
 
     <div v-if="(movieObject.backdrop_path != null)" class="card-film me-3">
 
-
       <img
         :src="`http://image.tmdb.org/t/p/w342/${movieObject.backdrop_path}`"
         alt="MovieImage"
@@ -21,6 +20,8 @@
         
         <div class="stars-container">
 
+          {{ starsPrint() }}
+
           <span class="text-danger">Valutazione: </span>
 
           <span v-for="n in fullStars" :key="'fullstar' + n">
@@ -34,6 +35,8 @@
           <span v-for="n in emptyStars" :key="'emptystar' + n">
             <font-awesome-icon icon="fa-regular fa-star" />
           </span>
+
+          <span> ({{movieObject.vote_average}})</span>
 
         </div>
 
@@ -84,6 +87,8 @@ export default {
 
       } else {
 
+        this.halfStar =  false
+
         this.fullStars = this.vote;
 
         this.emptyStars = 5 - this.fullStars;
@@ -94,9 +99,7 @@ export default {
 
 
   },
-  mounted() {
-    this.starsPrint();
-  },
+
 };
 
 </script>
