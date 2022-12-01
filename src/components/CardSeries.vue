@@ -16,12 +16,26 @@
             <span class="text-danger">Titolo: </span>{{seriesObject.name}}
          </div>
 
-         <div>
-            <span class="text-danger">Valutazione: </span>{{seriesObject.vote_average}}
+         <div class="stars-container">
+
+            <span class="text-danger">Valutazione: </span>
+
+            <span v-for="n in fullStars" :key="'fullstarseries' + n">
+               <font-awesome-icon icon="fa-solid fa-star" />
+            </span>
+
+            <span v-if="(halfStar == true)">
+               <font-awesome-icon icon="fa-regular fa-star-half-stroke"/>
+            </span>
+
+            <span v-for="n in emptyStars" :key="'emptystarseries' + n">
+               <font-awesome-icon icon="fa-regular fa-star" />
+            </span>
+
          </div>
 
          <div>
-            <img :src="`https://www.countryflagicons.com/FLAT/32/${(seriesObject.original_language == 'en') ? 'GB' : ((seriesObject.original_language == 'ja') ? 'JP' : seriesObject.original_language.toUpperCase())}.png`">
+            <span class="text-danger">Lingua: </span> <img :src="`https://www.countryflagicons.com/FLAT/16/${(seriesObject.original_language == 'en') ? 'GB' : ((seriesObject.original_language == 'ja') ? 'JP' : seriesObject.original_language.toUpperCase())}.png`">
          </div>
      
       </div>
@@ -37,7 +51,47 @@ export default {
    name: 'CardSeries',
    props:{
      seriesObject: Object
-   } 
+   },
+   data(){
+
+return{
+  vote: 0,
+  fullStars: 0,
+  emptyStars: 0,
+  halfStar: false,
+}
+
+},
+methods:{
+
+
+   starsPrint(){
+
+   this.vote = this.seriesObject.vote_average / 2;
+
+   if(this.vote != Math.floor(this.vote)){
+
+      this.halfStar = true;
+
+      this.fullStars = Math.floor(this.vote);
+
+      this.emptyStars = 5 - this.fullStars - 1;
+
+   } else {
+
+      this.fullStars = this.vote;
+
+      this.emptyStars = 5 - this.fullStars;
+
+   }
+
+   }
+
+
+},
+mounted() {
+this.starsPrint();
+},
 }
 </script>
 
@@ -72,6 +126,7 @@ export default {
 
 .description {
    opacity: 0;
+   font-size: 0.8rem;
 }
 
 .card-series:hover .description {

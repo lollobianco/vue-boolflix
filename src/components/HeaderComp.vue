@@ -32,7 +32,7 @@ export default {
 <style scoped lang="scss">
 
 #headercomp{
-  background-color: rgba(20, 20, 20, 0.0);
+  background-color: rgba(20, 20, 20, 1);
   height: 80px;
   position: fixed;
   z-index: 2;
