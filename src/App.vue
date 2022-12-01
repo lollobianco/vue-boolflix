@@ -84,9 +84,17 @@ export default {
 
   font-family: Avenir, Helvetica, Arial, sans-serif;
   
+  
 }
 
 html{
   background-color: #141414;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
 }
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 </style>

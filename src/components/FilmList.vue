@@ -38,13 +38,34 @@ import CardMovie from './CardMovie.vue'
    padding: 20px 50px;
    overflow-x: auto;
    overflow-y: hidden;
-
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #ff0000 #141414;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #808080;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ff0000;
+    border: 0px none #ffffff;
+  }
 
 .searched-title{
    color: #808080;
    background-color: #141414;
-   padding: 50px 0 10px 50px;
+   padding: 85px 0 10px 50px;
    font-size: 1.3rem;
 }
 </style>

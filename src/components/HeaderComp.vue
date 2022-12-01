@@ -32,8 +32,11 @@ export default {
 <style scoped lang="scss">
 
 #headercomp{
-  background-color: #141414;
-  height: 60px;
+  background-color: rgba(20, 20, 20, 0.0);
+  height: 80px;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
 }
 
 .logo{
