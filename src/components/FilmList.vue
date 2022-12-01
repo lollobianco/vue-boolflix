@@ -4,7 +4,7 @@
 
       <div class="searched-title" v-if="( searchTextFromHeaderToFilmList != '' )">Dai un'occhiata ai film correlati a: {{searchTextFromHeaderToFilmList}}</div>
 
-      <div class="d-flex justify-content-between" id="film-list">
+      <div class="d-flex" id="film-list">
 
          <CardMovie  v-for="(element, index) in filmResultsApp" :key="index" :movieObject="element"/>
 

@@ -4,7 +4,7 @@
 
       <div class="searched-title" v-if="( searchTextFromHeaderToSeriesList != '' )">Dai un'occhiata alle serie correlate a: {{searchTextFromHeaderToSeriesList}}</div>
 
-      <div class="d-flex justify-content-between" id="series-list">
+      <div class="d-flex" id="series-list">
     
          <CardSeries v-for="(element, index) in seriesResultsApp" :key="index" :seriesObject="element"/>
 
@@ -63,4 +63,5 @@ import CardSeries from './CardSeries.vue'
    padding: 50px 0 10px 50px;
    font-size: 1.3rem;
 }
+
 </style>
